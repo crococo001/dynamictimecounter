@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Moving Block With Keyboard Keys</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .countdown-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer-item {
+  margin: 0 15px;
+  text-align: center;
+  font-size: 32px;
+}
+
+.timer-value {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #343a40;
+  color: #fff;
+  font-size: 32px;
+  line-height: 80px;
+  text-align: center;
+  animation: timer-animation 1s ease-in-out forwards;
+}
+
+.timer-label {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #343a40;
+}
+
+@keyframes timer-animation {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.8);
+  }
+}
+            </style>
+            <script>
+                const countdownTimer = (deadline) => {
+  const timerHours = document.querySelector('.hours .timer-value');
+  const timerMinutes = document.querySelector('.minutes .timer-value');
+  const timerSeconds = document.querySelector('.seconds .timer-value');
+
+  const startTime = new Date().getTime() + (13 * 60 * 60 + 20 * 60 + 30) * 1000;
+
+  const interval = setInterval(() => {
+    const now = new Date().getTime();
+    const timeLeft = startTime - now;
+
+    if (timeLeft < 0) {
+      clearInterval(interval);
+      return;
+    }
+
+    const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+    const seconds = Math.floor((timeLeft / 1000) % 60);
+
+    timerHours.textContent = hours < 10 ? '0' + hours : hours;
+    timerMinutes.textContent = minutes < 10 ? '0' + minutes : minutes;
+    timerSeconds.textContent = seconds < 10 ? '0' + seconds : seconds;
+  }, 1000);
+}
+
+// Call the function with a deadline of your choice
+countdownTimer(new Date().getTime());
+            </script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="countdown-timer">
+            <div class="timer-wrapper">
+              <div class="timer-item hours">
+                <div class="timer-value"></div>
+                <div class="timer-label">Hours</div>
+              </div>
+              <div class="timer-item minutes">
+                <div class="timer-value"></div>
+                <div class="timer-label">Minutes</div>
+              </div>
+              <div class="timer-item seconds">
+                <div class="timer-value"></div>
+                <div class="timer-label">Seconds</div>
+              </div>
+            </div>
+          </div>
+    </body>
+</html>
