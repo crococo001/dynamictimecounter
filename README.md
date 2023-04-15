@@ -6,4 +6,4 @@ Built in HTML,CSS & JAVASCRIPT
 
 support me on my blog, by sharing.
 
-<a href="https://apkcroc.com/traffic-rider-mod-apk/">TRAFFIC RIDER MOD APK - APK CROC</a>
+<a href="https://apkcroc.com/traffic-rider-mod-apk/">TRAFFIC RIDER MOD APK Unlimited Money</a>
